@@ -1800,22 +1800,53 @@ const markdown = \`![图片](img://\${imageId})\`;
           doc.body.appendChild(section);
         }
 
-        // 代码块简化
+        // 代码块转换为公众号更容易保留的结构，同时保留 macOS 三色圆点
         const codeBlocks = doc.querySelectorAll('div[style*="border-radius: 8px"]');
         codeBlocks.forEach(block => {
           const codeElement = block.querySelector('code');
           if (codeElement) {
             const codeText = codeElement.textContent || codeElement.innerText;
+            const wrapper = doc.createElement('section');
+            const header = doc.createElement('section');
             const pre = doc.createElement('pre');
             const code = doc.createElement('code');
 
-            pre.setAttribute('style',
-              'background: linear-gradient(to bottom, #2a2c33 0%, #383a42 8px, #383a42 100%);' +
-              'padding: 0;' +
-              'border-radius: 6px;' +
-              'overflow: hidden;' +
+            wrapper.setAttribute('style',
               'margin: 24px 0;' +
+              'border-radius: 8px;' +
+              'overflow: hidden;' +
+              'background-color: #383a42;' +
               'box-shadow: 0 2px 8px rgba(0,0,0,0.15);'
+            );
+
+            header.setAttribute('style',
+              'padding: 10px 12px;' +
+              'background-color: #2a2c33;' +
+              'border-bottom: 1px solid #1e1f24;' +
+              'line-height: 12px;'
+            );
+
+            ['#ff5f56', '#ffbd2e', '#27c93f'].forEach(color => {
+              const dot = doc.createElement('span');
+              dot.setAttribute('style',
+                'display: inline-block;' +
+                'width: 12px;' +
+                'height: 12px;' +
+                'border-radius: 50%;' +
+                `background-color: ${color};` +
+                'margin-right: 6px;' +
+                'vertical-align: middle;'
+              );
+              dot.innerHTML = '&nbsp;';
+              header.appendChild(dot);
+            });
+
+            pre.setAttribute('style',
+              'background-color: #383a42;' +
+              'padding: 0;' +
+              'border-radius: 0;' +
+              'overflow-x: auto;' +
+              'margin: 0;'
             );
 
             code.setAttribute('style',
@@ -1832,7 +1863,9 @@ const markdown = \`![图片](img://\${imageId})\`;
 
             code.textContent = codeText;
             pre.appendChild(code);
-            block.parentNode.replaceChild(pre, block);
+            wrapper.appendChild(header);
+            wrapper.appendChild(pre);
+            block.parentNode.replaceChild(wrapper, block);
           }
         });
 
