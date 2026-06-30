@@ -555,6 +555,36 @@ const STYLES = {
     }
   },
 
+
+  'mdnice-blueprint': {
+    name: 'MDNice 蓝格',
+    styles: {
+      container: 'max-width: 720px; margin: 0 auto; padding: 0 10px 28px 10px; font-family: Optima, "PingFang SC", "PingFangSC-light", "Microsoft YaHei", serif; font-size: 16px; line-height: 1.5 !important; color: #000 !important; background-color: transparent !important; background-image: linear-gradient(90deg, rgba(50,0,0,0.03) 0%, rgba(255,255,255,0) 11.49%), linear-gradient(360deg, rgba(50,0,0,0.04) 0%, rgba(255,255,255,0) 12.16%); background-size: 20px 20px, 20px 20px; word-wrap: break-word; letter-spacing: 0;',
+      h1: 'font-size: 24px; font-weight: 700; color: #40b8fa !important; line-height: 1.5 !important; margin: 30px 0 15px; padding: 0; letter-spacing: 0; font-family: Optima, "PingFang SC", "PingFangSC-light", serif;',
+      h2: 'font-size: 20px; font-weight: 700; color: #40b8fa !important; line-height: 1.5 !important; margin: 30px 0 15px; padding: 0 0 6px 25px; border-bottom: 4px solid #40b8fa; position: relative; font-family: Optima, "PingFang SC", "PingFangSC-light", serif;',
+      h3: 'font-size: 22px; font-weight: 700; color: #40b8fa !important; line-height: 1.8 !important; margin: 30px 0 15px; padding: 6px 0; text-align: center; border-top: 1px solid rgba(64,184,250,0.45); border-bottom: 1px solid rgba(64,184,250,0.45); font-family: Optima, "PingFang SC", "PingFangSC-light", serif;',
+      h4: 'font-size: 18px; font-weight: 700; color: #40b8fa !important; line-height: 1.6 !important; margin: 24px 0 12px; padding: 4px 0 4px 12px; border-left: 4px solid rgba(64,184,250,0.75); background-color: rgba(64,184,250,0.06) !important; font-family: Optima, "PingFang SC", "PingFangSC-light", serif;',
+      h5: 'font-size: 16px; font-weight: 700; color: #3594f7 !important; line-height: 1.6 !important; margin: 20px 0 10px; padding-bottom: 4px; border-bottom: 1px dashed rgba(64,184,250,0.45); font-family: Optima, "PingFang SC", "PingFangSC-light", serif;',
+      h6: 'font-size: 15px; font-weight: 700; color: rgba(64,184,250,0.82) !important; line-height: 1.6 !important; margin: 18px 0 8px; padding-left: 10px; border-left: 2px solid rgba(64,184,250,0.45); letter-spacing: 0.04em;',
+      p: 'margin: 0 !important; padding: 8px 0; color: #2b2b2b !important; font-size: 14px; line-height: 1.8 !important; letter-spacing: 0.02em; text-align: left; text-indent: 0;',
+      strong: 'font-weight: 700; color: #40b8fa !important; background-color: rgba(64,184,250,0.10) !important; padding: 1px 4px; border-radius: 4px;',
+      em: 'font-style: italic; color: #595959 !important;',
+      a: 'color: #3594f7 !important; text-decoration: none; border-bottom: 1px solid rgba(53,148,247,0.5); word-break: break-all;',
+      ul: 'margin: 8px 0; padding-left: 25px; color: #000 !important; list-style-type: disc;',
+      ol: 'margin: 8px 0; padding-left: 25px; color: #000 !important; list-style-type: decimal;',
+      li: 'margin: 5px 0; color: #595959 !important; font-size: 14px; line-height: 1.8 !important; letter-spacing: 0.02em;',
+      blockquote: 'margin: 20px 0; padding: 10px 20px; border: 1px solid rgba(64,184,255,0.4); border-radius: 8px; background-color: rgba(64,184,250,0.10) !important; color: #3b3b3b !important; font-size: 14px; line-height: 1.8 !important; overflow-x: auto;',
+      code: 'font-family: "Operator Mono", Consolas, Monaco, Menlo, monospace; font-size: 14px; line-height: 1.8; color: #3594f7 !important; background-color: rgba(27,31,35,0.05) !important; padding: 2px 4px; margin: 0 2px; border-radius: 4px; word-break: break-all;',
+      pre: 'margin: 10px 0; padding: 16px; background-color: #282c34 !important; color: #abb2bf !important; border-radius: 5px; overflow-x: auto; line-height: 1.7 !important; box-shadow: rgba(0,0,0,0.55) 0 2px 10px;',
+      hr: 'margin: 28px auto; border: none; height: 1px; background: linear-gradient(to right, transparent, rgba(64,184,250,0.85), transparent); max-width: 220px;',
+      img: 'max-width: 100%; max-height: 560px !important; height: auto; display: block; margin: 10px auto; border-radius: 8px; box-shadow: rgb(153,153,153) 2px 4px 8px 0;',
+      table: 'width: 100%; margin: 18px 0; border-collapse: collapse; font-size: 14px; color: #2b2b2b !important; overflow: hidden; border-radius: 6px;',
+      th: 'background-color: rgba(64,184,250,0.14) !important; color: #2b2b2b !important; padding: 9px 10px; text-align: left; border: 1px solid rgba(64,184,250,0.35); font-weight: 700;',
+      td: 'padding: 9px 10px; border: 1px solid rgba(64,184,250,0.25); color: #3b3b3b !important; background-color: rgba(255,255,255,0.65) !important;',
+      tr: 'border-bottom: 1px solid rgba(64,184,250,0.25);',
+    }
+  },
+
   'lemonde': {
     name: 'Le Monde 世界报',
     styles: {

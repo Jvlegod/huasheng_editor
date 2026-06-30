@@ -2409,7 +2409,7 @@ const markdown = \`![图片](img://\${imageId})\`;
 
     isRecommended(styleKey) {
       // 推荐的样式
-      const recommended = ['nikkei', 'wechat-anthropic', 'wechat-ft', 'wechat-nyt', 'latepost-depth', 'wechat-tech'];
+      const recommended = ['mdnice-blueprint', 'nikkei', 'wechat-anthropic', 'wechat-ft', 'wechat-nyt', 'latepost-depth', 'wechat-tech'];
       return recommended.includes(styleKey);
     },
 
