@@ -73,11 +73,17 @@ const STYLE_MODULES = {
       const header = doc.createElement('section');
       const pre = doc.createElement('pre');
       const code = doc.createElement('code');
+      const normalizedCodeText = String(codeText || '').replace(/\t/g, '    ');
+      const longestLine = normalizedCodeText.split(/\r?\n/).reduce((max, line) => {
+        return Math.max(max, line.length);
+      }, 0);
+      const codeMinWidth = Math.max(360, Math.ceil(longestLine * 8.4) + 40);
 
       wrapper.setAttribute('style',
         'margin: 24px 0;' +
         'border-radius: 8px;' +
-        'overflow: hidden;' +
+        'max-width: 100%;' +
+        'box-sizing: border-box;' +
         `background-color: ${normalizedStyle.codeBackgroundColor};` +
         'box-shadow: 0 2px 8px rgba(0,0,0,0.15);'
       );
@@ -87,7 +93,8 @@ const STYLE_MODULES = {
         `background-color: ${normalizedStyle.titleBackgroundColor};` +
         'border-bottom: 1px solid rgba(0,0,0,0.2);' +
         'line-height: 12px;' +
-        'min-height: 32px;'
+        'min-height: 32px;' +
+        'border-radius: 8px 8px 0 0;'
       );
 
       if (normalizedStyle.titleType === 'text') {
@@ -121,25 +128,42 @@ const STYLE_MODULES = {
 
       pre.setAttribute('style',
         `background-color: ${normalizedStyle.codeBackgroundColor};` +
-        'padding: 0;' +
-        'border-radius: 0;' +
-        'overflow-x: auto;' +
-        'margin: 0;'
-      );
-
-      code.setAttribute('style',
         'color: #abb2bf;' +
         'font-family: "SF Mono", Consolas, Monaco, "Courier New", monospace;' +
         'font-size: 14px;' +
         'line-height: 1.7;' +
         'display: block;' +
-        'white-space: pre;' +
+        'width: 100%;' +
+        'max-width: 100%;' +
+        'box-sizing: border-box;' +
+        'margin: 0;' +
         'padding: 16px 20px;' +
-        '-webkit-font-smoothing: antialiased;' +
-        '-moz-osx-font-smoothing: grayscale;'
+        'border: none;' +
+        'border-radius: 0 0 8px 8px;' +
+        'overflow-x: scroll;' +
+        'overflow-y: hidden;' +
+        '-webkit-overflow-scrolling: touch;' +
+        'white-space: pre;' +
+        'word-break: normal;' +
+        'word-wrap: normal;' +
+        'overflow-wrap: normal;' +
+        'text-align: left;'
       );
 
-      code.textContent = codeText;
+      code.setAttribute('style',
+        'display: inline-block;' +
+        `min-width: ${codeMinWidth}px;` +
+        'max-width: none;' +
+        'color: inherit;' +
+        'font: inherit;' +
+        'line-height: inherit;' +
+        'white-space: pre;' +
+        'word-break: normal;' +
+        'word-wrap: normal;' +
+        'overflow-wrap: normal;'
+      );
+
+      code.textContent = normalizedCodeText;
       pre.appendChild(code);
       wrapper.appendChild(header);
       wrapper.appendChild(pre);
