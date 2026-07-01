@@ -163,7 +163,24 @@ const STYLE_MODULES = {
         'overflow-wrap: normal;'
       );
 
-      code.textContent = normalizedCodeText;
+      normalizedCodeText.split(/\r?\n/).forEach((line, index, lines) => {
+        const lineNode = doc.createElement('span');
+        const leadingSpaceMatch = line.match(/^ */);
+        const leadingSpaces = leadingSpaceMatch ? leadingSpaceMatch[0].length : 0;
+        lineNode.setAttribute('style',
+          'display: block;' +
+          'white-space: pre;' +
+          'word-break: normal;' +
+          'word-wrap: normal;' +
+          'overflow-wrap: normal;'
+        );
+        lineNode.textContent = '\u00a0'.repeat(leadingSpaces) + line.slice(leadingSpaces);
+        code.appendChild(lineNode);
+        if (index < lines.length - 1) {
+          code.appendChild(doc.createTextNode('\n'));
+        }
+      });
+
       pre.appendChild(code);
       wrapper.appendChild(header);
       wrapper.appendChild(pre);
